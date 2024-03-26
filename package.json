@@ -1,0 +1,54 @@
+{
+  "name": "gitlab-cypress",
+  "version": "1.0.0",
+  "description": "Sample project to experiment with Cypress for testing the GitLab application",
+  "scripts": {
+    "cy:open": "cypress open --config excludeSpecPattern=[cypress/e2e/api/index.cy.js,cypress/e2e/gui/project/projectIssue.cy.js,cypress/e2e/gui/project/projectButIssue.cy.js,cypress/e2e/gui/allButProject.cy.js]",
+    "lint": "standard --verbose | snazzy",
+    "lint:fix": "standard --fix",
+    "test": "cypress run --spec 'cypress/e2e/gui/profile/createAccessToken.cy.js,cypress/e2e/api/**/*.cy.js,cypress/e2e/gui/**/*.cy.js' --config excludeSpecPattern=[cypress/e2e/api/index.cy.js,cypress/e2e/gui/project/projectIssue.cy.js,cypress/e2e/gui/project/projectButIssue.cy.js,cypress/e2e/gui/allButProject.cy.js,cypress/e2e/gui/profile/deleteAccessTokens.cy.js]",
+    "test:api:cloud": "cypress run --record --tag 'api' --spec 'cypress/e2e/api/index.cy.js'",
+    "test:gui:project:issue:cloud": "cypress run --record --tag 'gui:project:issue' --spec 'cypress/e2e/gui/project/projectIssue.cy.js'",
+    "test:gui:project:but:issue:cloud": "cypress run --record --tag 'gui:project:but:issue' --spec 'cypress/e2e/gui/project/projectButIssue.cy.js'",
+    "test:gui:all:but:project:cloud": "cypress run --record --tag 'gui:all:but:project' --spec 'cypress/e2e/gui/allButProject.cy.js'",
+    "test:api": "cypress run --spec 'cypress/e2e/api/index.cy.js'",
+    "test:gui:project:issue": "cypress run --spec 'cypress/e2e/gui/project/projectIssue.cy.js'",
+    "test:gui:project:but:issue": "cypress run --spec 'cypress/e2e/gui/project/projectButIssue.cy.js'",
+    "test:gui:all:but:project": "cypress run --spec 'cypress/e2e/gui/allButProject.cy.js'"
+  },
+  "standard": {
+    "globals": [
+      "before",
+      "beforeEach",
+      "cy",
+      "Cypress",
+      "describe",
+      "expect",
+      "it"
+    ]
+  },
+  "keywords": [
+    "testing",
+    "automation",
+    "cypress",
+    "gitlab",
+    "web-testing"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/wlsf82/gitlab-cypress"
+  },
+  "author": "Walmyr Filho <walmyr@gitlab.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+    "@esbuild-plugins/node-modules-polyfill": "^0.2.2",
+    "@faker-js/faker": "^8.3.1",
+    "cypress": "^13.6.3",
+    "esbuild": "^0.19.11",
+    "eslint": "^8.56.0",
+    "snazzy": "^9.0.0",
+    "standard": "^17.1.0"
+  }
+}
